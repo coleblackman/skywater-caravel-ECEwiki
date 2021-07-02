@@ -24,5 +24,25 @@ SHA3 priorities:
 * Preimage resistance
 * Differing (if not improved) performance profile to SHA2 (application specific)
 
+SHA-3 has three main steps: pad, absorb, and squeeze.
+For SHA3-256, the ''rate'' is 1088 bits and the ''capacity'' is 512 bits. Together, the rate and the capacity make the ''state'', which is 1600 bits. The state is treated as a 5 x 5 x 64 (x, y, and z) array of bits. [insert picture]
+
+===Pad===
+First, to make the input size a multiple of the rate of 1088, you pad with 0s except for the first and last bits which are 1s. This allows you to split the input into 1088 bit chunks.
+
+===Absorb===
+Next, you ''absorb'' the input into the state 1088 bits at a time. For each 1088 bits:
+:xOR the block with the first 1088 bits of the state
+:24 times: run the &theta;, &rho;, &pi;, &chi;, and &iota; functions 
+::&theta;: xor each block with its two-column parity (look at the paper defining the function for more information)
+::&rho;: shift each column along z by a certain predetermined amount
+::&pi;: map each column along z to another with a certain predetermined mapping
+::&chi;: apply the gates depicted below [insert picture] for each row along x
+::&iota;: xor certain bits in the first (0, 0) column along z with a ''round constant'' determined by which round of 24 is currently being calculated
+:Continue with the resulting state
+
+===Squeeze===
+Take the first 256 bits of the state as the output hash.
+
 
 ==ASIC Design==
