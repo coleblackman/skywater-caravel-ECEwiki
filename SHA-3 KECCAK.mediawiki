@@ -1,0 +1,28 @@
+=SHA-3 (KECCAK) NIST Hashing Algorithm=
+
+==The algorithm==
+
+SHA3 is specified by NIST:
+
+https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf
+
+SHA-3 includes:
+
+* SHA3-224
+* SHA3-256
+* SHA3-384
+* SHA3-512
+
+XOFs:
+
+* SHAKE128
+* SHAKE256
+
+SHA3 priorities:
+
+* Collision resistance
+* Preimage resistance
+* Differing (if not improved) performance profile to SHA2 (application specific)
+
+
+==ASIC Design==
