@@ -1,0 +1,30 @@
+=Verilog Tutorial=
+Applies to Verilog 2001
+
+Verilog is a hardware description language (HDL). This means the code you write in a language like Verilog specifies the layout of a piece of hardware (think of circuits), as opposed to code written in a programming language, which executes on a computer. Before HDLs, circuit diagrams were used for this purpose. 
+Usage includes writing descriptive code (at RTL) for Field Programmable Gate Arrays (FPGAs), Application Specific Integrated Circuits (ASICs), and discrete logic units, among others.
+
+Verilog is weakly typed (as opposed to another HDL, VHDL, which is strongly typed), though there is nuance to the typing.
+
+The process of using Verilog to write FPGA or ASIC RTL hardware descriptions is typically as follows:
+
+# Writing Verilog
+## Simulating (optional)
+### Synthesizing/compiling
+
+==Writing Verilog== 
+
+===Operators===
+
+* Blocking assignment operator
+* Non-blocking assignment operator
+
+====Bitwise Operators====
+
+===Variable Representation in Verilog===
+
+===Sensitivity List===
+
+===Blocks===
+
+===Sample Code Block in Verilog===
