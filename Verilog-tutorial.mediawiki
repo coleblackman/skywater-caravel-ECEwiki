@@ -1,10 +1,12 @@
 =Verilog Tutorial=
 Applies to Verilog 2001
 
-Verilog is a hardware description language (HDL). This means the code you write in a language like Verilog specifies the layout of a piece of hardware (think of circuits), as opposed to code written in a programming language, which executes on a computer. Before HDLs, circuit diagrams were used for this purpose. 
+==Introduction==
+
+Verilog is a hardware description language (HDL). This means the code you write in a language like Verilog specifies the layout of a piece of hardware (think of circuits), as opposed to code written in a programming language, which executes on your computer. Before HDLs, circuit diagrams were used for this purpose. 
 Usage includes writing descriptive code (at RTL) for Field Programmable Gate Arrays (FPGAs), Application Specific Integrated Circuits (ASICs), and discrete logic units, among others.
 
-Verilog is weakly typed (as opposed to another HDL, VHDL, which is strongly typed), though there is nuance to the typing.
+Verilog is weakly typed (as opposed to another HDL, VHDL, which is strongly typed), though there is nuance to the typing. Other core language features are similar to C, which is helpful. For instance, precedence is equivalent to C, and the language has a preprocessor. Fluency in C is helpful both for this reason and because testbenches are written in C.  
 
 The process of using Verilog to write FPGA or ASIC RTL hardware descriptions is typically as follows:
 
@@ -14,12 +16,100 @@ The process of using Verilog to write FPGA or ASIC RTL hardware descriptions is 
 
 ==Writing Verilog== 
 
+===Concurrency===
+
+One of the key differences between typical programming languages and Verilog is the idea of concurrency. 
+
+Note: concurrency here is not meant in the sense of ``parallelization``, as you may be familiar with in other languages. Verilog supports parallel processes through fork blocks, but even without their usage, Verilog has inherently concurrent data processes. This is called ``datastream`` programming, as distinct from procedural programming.
+
+In hardware, once all code semantics are ``unrolled`` and the Verilog code has been synthesized,  
+
 ===Operators===
+
+Many of the operators in Verilog will be familiar to anyone with coding experience. For instance, '+', '-', '==', and '!=' correspond to unary addition, unary subtraction, logical equality, and logical inequality, respectively. Verilog has operators to deal with differing 'functional groups,' such as the bitwise operator, relational operator, and logical operator groups. 
+
 
 * Blocking assignment operator
 * Non-blocking assignment operator
 
 ====Bitwise Operators====
+
+The main Verilog wikipedia page contains the following list of operators:
+
+{| class=wikitable
+|-
+! Operator type || Operator symbols || Operation performed
+|-
+| rowspan=5|Bitwise || ~ || Bitwise NOT (1's complement)
+|-
+|                      & || Bitwise AND
+|-
+|              <nowiki>|</nowiki> || Bitwise OR
+|-
+|                      ^ || Bitwise XOR
+|-
+|                      ~^ or ^~ || Bitwise XNOR
+|-
+| rowspan=3|Logical           || ! || NOT
+|-
+| && || AND
+|-
+| <nowiki>||</nowiki> ||  OR
+|-
+| rowspan=6|Reduction || & || Reduction AND
+|-
+| ~& || Reduction NAND
+|-
+| <nowiki>|</nowiki> || Reduction OR
+|-
+| <nowiki>~|</nowiki> || Reduction NOR
+|-
+| ^ || Reduction XOR
+|-
+| ~^ or ^~ || Reduction XNOR
+|-
+| rowspan=6|Arithmetic || + || Addition
+|-
+| - || Subtraction
+|-
+| - || 2's complement
+|-
+| * || Multiplication
+|-
+| / || Division
+|-
+| ** || Exponentiation (*Verilog-2001)
+|-
+| rowspan=8| Relational || > || Greater than
+|-
+| < || Less than
+|-
+| >= || Greater than or equal to
+|-
+| <= || Less than or equal to
+|-
+| == || Logical equality (bit-value 1'bX is removed from comparison)
+|-
+| != || Logical inequality (bit-value 1'bX is removed from comparison)
+|-
+| === || 4-state logical equality (bit-value 1'bX is taken as literal)
+|-
+| !== || 4-state logical inequality (bit-value 1'bX is taken as literal)
+|-
+| rowspan=4| Shift || >> || [[Logical shift|Logical right shift]]
+|-
+| << || [[Logical shift|Logical left shift]]
+|-
+| >>> || [[Arithmetic shift|Arithmetic right shift]] (*Verilog-2001)
+|-
+| <<< || [[Arithmetic shift|Arithmetic left shift]] (*Verilog-2001)
+|-
+| Concatenation || <nowiki>{, }</nowiki> || Concatenation
+|-
+| Replication || <nowiki>{n{m}}</nowiki> || Replicate value m for n times
+|-
+| Conditional || ? : || Conditional
+|}
 
 ===Variable Representation in Verilog===
 
