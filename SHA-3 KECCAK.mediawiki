@@ -6,6 +6,10 @@ SHA3 is specified by NIST:
 
 https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf
 
+The Keccak Handbook:
+
+https://keccak.team/files/Keccak-reference-3.0.pdf
+
 SHA-3 includes:
 
 * SHA3-224
