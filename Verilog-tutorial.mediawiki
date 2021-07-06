@@ -131,13 +131,15 @@ some other element in your design.
 
 ====Regs====
 
-A ''reg'' is the closest thing to a C-like variable in Verilog.
+A ''reg'' is the closest thing to a C-like variable in Verilog. Note that it is not equivalent to a "register." 
 
 ====Ports====
 
 ===Sensitivity List===
 
 ===Blocks===
+
+====Generate====
 
 ===Recommended Reading===
 
@@ -154,3 +156,13 @@ Wire vs. Reg
 https://inst.eecs.berkeley.edu/~cs150/Documents/Nets.pdf
 
 ===Sample Code Block in Verilog===
+
+The below code sample is a modified version of the simple in-and-out program found in Verilog By Example, but as this is essentially the most minimal Verilog code sample, there are many very similar to it.
+
+<code>
+
+module in_and_out ( 
+    in_1,
+    
+
+</code>
