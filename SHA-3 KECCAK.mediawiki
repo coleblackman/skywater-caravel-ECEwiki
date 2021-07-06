@@ -45,7 +45,7 @@ Next, you ''absorb'' the input into the state 1088 bits at a time. For each 1088
 ::&iota;: xor certain bits in the first (0, 0) column along z with a ''round constant'' determined by which round of 24 is currently being calculated
 :Continue with the resulting state
 
-[[File:chi madness.png|thumb|Gates for &chi; step]]
+[[File:chi madness.PNG|thumb|Gates for &chi; step]]
 ===Squeeze===
 Take the first 256 bits of the state as the output hash.
 
