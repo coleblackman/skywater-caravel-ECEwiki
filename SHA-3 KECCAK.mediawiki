@@ -29,7 +29,10 @@ SHA3 priorities:
 * Differing (if not improved) performance profile to SHA2 (application specific)
 
 SHA-3 has three main steps: pad, absorb, and squeeze.
-For SHA3-256, the ''rate'' is 1088 bits and the ''capacity'' is 512 bits. Together, the rate and the capacity make the ''state'', which is 1600 bits. The state is treated as a 5 x 5 x 64 (x, y, and z) array of bits. [insert picture]
+For SHA3-256, the ''rate'' is 1088 bits and the ''capacity'' is 512 bits. Together, the rate and the capacity make the ''state'', which is 1600 bits. The state is treated as a 5 x 5 x 64 (x, y, and z) array of bits.
+
+
+[[File:state array.PNG|thumb|State array form]]
 
 ===Pad===
 First, to make the input size a multiple of the rate of 1088, you pad with 0s except for the first and last bits which are 1s. This allows you to split the input into 1088 bit chunks.
