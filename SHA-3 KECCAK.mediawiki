@@ -50,3 +50,24 @@ Take the first 256 bits of the state as the output hash.
 
 
 ==ASIC Design==
+
+
+
+
+==Further Reading==
+
+Keccak Reference:
+
+https://keccak.team/files/Keccak-reference-3.0.pdf
+
+SHA-3 Specification:
+
+https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf
+
+Keccak Specification Summary:
+
+https://keccak.team/keccak_specs_summary.html
+
+SHA-3 Derived Functions:
+
+https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-185.pdf
