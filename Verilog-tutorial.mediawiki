@@ -86,7 +86,7 @@ https://inst.eecs.berkeley.edu/~cs150/Documents/Nets.pdf
 
 The below code sample is a modified version of the simple in-and-out program found in Verilog By Example, but as this is essentially the most minimal Verilog code sample, there are many very similar to it.
 
-<code>
+<pre>
 
 module in_and_out ( 
     in_1, in_2, in_3,
@@ -107,6 +107,7 @@ module in_and_out (
     assign out_2 = intermediate_signal | in_3;
     
 endmodule
-</code>
+
+</pre>
 
 This sample should be fairly self-explanatory if you have read the operator list. Look at this syntax closely. It is not C syntax, but it is inspired by C. A good exercise it to try to modify this code to use other operators in some way.
