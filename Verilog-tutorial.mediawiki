@@ -47,8 +47,7 @@ A ''wire'' is a bus which can transmit information (combinational logic).
 
 From https://inst.eecs.berkeley.edu/~cs150/Documents/Nets.pdf:
 
-# Wire elements are used to connect input and output ports of a module instantiation together with
-some other element in your design.
+# Wire elements are used to connect input and output ports of a module instantiation together with some other element in your design.
 # Wire elements are used as inputs and outputs within an actual module declaration.
 # Wire elements must be driven by something, and cannot store a value without being driven.
 # Wire elements cannot be used as the left-hand side of an = or <= sign in an always@ block.
@@ -86,7 +85,7 @@ https://inst.eecs.berkeley.edu/~cs150/Documents/Nets.pdf
 
 The below code sample is a modified version of the simple in-and-out program found in Verilog By Example, but as this is essentially the most minimal Verilog code sample, there are many very similar to it.
 
-<pre>
+<code>
 
 module in_and_out ( 
     in_1, in_2, in_3,
@@ -107,7 +106,6 @@ module in_and_out (
     assign out_2 = intermediate_signal | in_3;
     
 endmodule
-
-</pre>
+</code>
 
 This sample should be fairly self-explanatory if you have read the operator list. Look at this syntax closely. It is not C syntax, but it is inspired by C. A good exercise it to try to modify this code to use other operators in some way.
