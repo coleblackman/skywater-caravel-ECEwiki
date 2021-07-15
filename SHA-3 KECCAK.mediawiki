@@ -16,9 +16,7 @@ SHA-3 includes:
 * SHA3-256
 * SHA3-384
 * SHA3-512
-
-XOFs:
-
+and the extendable output functions (XOFs)
 * SHAKE128
 * SHAKE256
 
