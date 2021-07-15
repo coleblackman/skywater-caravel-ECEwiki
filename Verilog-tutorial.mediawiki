@@ -6,7 +6,7 @@ Applies to Verilog 2001
 Verilog is a hardware description language (HDL). This means the code you write in a language like Verilog specifies the layout of a piece of hardware (think of circuits), as opposed to code written in a programming language, which executes on your computer. Before HDLs, circuit diagrams were used for this purpose. 
 Usage includes writing descriptive code (at RTL) for Field Programmable Gate Arrays (FPGAs), Application Specific Integrated Circuits (ASICs), and discrete logic units, among others.
 
-Verilog is weakly typed (as opposed to another HDL, VHDL, which is strongly typed), though there is nuance to the typing. Other core language features are similar to C, which is helpful. For instance, precedence is equivalent to C, and the language has a preprocessor. Fluency in C is helpful both for this reason and because testbenches/harnesses are written in C.  
+Verilog is weakly typed (as opposed to another HDL, VHDL, which is strongly typed), though there is nuance to the typing. Other core language features are similar to C, which is helpful. For instance, precedence is equivalent to C, and the language has a preprocessor. Fluency in C is helpful both for this reason and because testbenches/harnesses are written in C. It would prove difficult to write meaningful Verilog code without knowledge of C.
 
 The process of using Verilog to write FPGA or ASIC RTL hardware descriptions is typically as follows:
 
@@ -22,7 +22,7 @@ One of the key differences between typical programming languages and Verilog is 
 
 Note: concurrency here is not meant in the sense of ''parallelization'', as you may be familiar with in other languages. Verilog supports parallel processes through fork blocks, but even without their usage, Verilog has inherently concurrent data processes. This is called ''datastream'' programming, as distinct from procedural programming.
 
-Once all code semantics are ''unrolled'' and the Verilog code has been synthesized into hardware specification, hardware is concurrent and static. This is an important concept in understanding and applying the ''blocking'' and ''non-blocking'' operators.
+Once all code semantics are ''unrolled'' and the Verilog code has been synthesized into hardware specification, hardware is concurrent and static. This is an important concept in understanding and applying the ''blocking'' and ''non-blocking'' operators because it means that Verilog code can "execute" truly concurrently.
 
 ===Operators===
 
@@ -34,82 +34,9 @@ Many of the operators in Verilog will be familiar to anyone with C experience. F
 
 ====Bitwise Operators====
 
-The main Verilog wikipedia page contains the following list of operators:
+See https://class.ece.uw.edu/cadta/verilog/operators.html for a list of all operators in Verilog. 
 
-{| class=wikitable
-|-
-! Operator type || Operator symbols || Operation performed
-|-
-| rowspan=5|Bitwise || ~ || Bitwise NOT (1's complement)
-|-
-|                      & || Bitwise AND
-|-
-|              <nowiki>|</nowiki> || Bitwise OR
-|-
-|                      ^ || Bitwise XOR
-|-
-|                      ~^ or ^~ || Bitwise XNOR
-|-
-| rowspan=3|Logical           || ! || NOT
-|-
-| && || AND
-|-
-| <nowiki>||</nowiki> ||  OR
-|-
-| rowspan=6|Reduction || & || Reduction AND
-|-
-| ~& || Reduction NAND
-|-
-| <nowiki>|</nowiki> || Reduction OR
-|-
-| <nowiki>~|</nowiki> || Reduction NOR
-|-
-| ^ || Reduction XOR
-|-
-| ~^ or ^~ || Reduction XNOR
-|-
-| rowspan=6|Arithmetic || + || Addition
-|-
-| - || Subtraction
-|-
-| - || 2's complement
-|-
-| * || Multiplication
-|-
-| / || Division
-|-
-| ** || Exponentiation (*Verilog-2001)
-|-
-| rowspan=8| Relational || > || Greater than
-|-
-| < || Less than
-|-
-| >= || Greater than or equal to
-|-
-| <= || Less than or equal to
-|-
-| == || Logical equality (bit-value 1'bX is removed from comparison)
-|-
-| != || Logical inequality (bit-value 1'bX is removed from comparison)
-|-
-| === || 4-state logical equality (bit-value 1'bX is taken as literal)
-|-
-| !== || 4-state logical inequality (bit-value 1'bX is taken as literal)
-|-
-| rowspan=4| Shift || >> || [[Logical shift|Logical right shift]]
-|-
-| << || [[Logical shift|Logical left shift]]
-|-
-| >>> || [[Arithmetic shift|Arithmetic right shift]] (*Verilog-2001)
-|-
-| <<< || [[Arithmetic shift|Arithmetic left shift]] (*Verilog-2001)
-|-
-| Concatenation || <nowiki>{, }</nowiki> || Concatenation
-|-
-| Replication || <nowiki>{n{m}}</nowiki> || Replicate value m for n times
-|-
-| Conditional || ? : || Conditional
-|}
+Bitwise operators work on a bit level rather than a data level. 
 
 ===Variable Representation in Verilog===
 
@@ -162,7 +89,24 @@ The below code sample is a modified version of the simple in-and-out program fou
 <code>
 
 module in_and_out ( 
-    in_1,
+    in_1, in_2, in_3,
+    out_1, out_2
+    );
+    input   in_1;
+    input   in_2;
+    input   in_3;
     
-
+    output  out_1;
+    output  out_2;
+    
+    wire    intermediate_signal;
+    
+    assign intermediate_signal = in_1 & in_2;
+    
+    assign out_1 = intermediate_signal & in_3;
+    assign out_2 = intermediate_signal | in_3;
+    
+endmodule
 </code>
+
+This sample should be fairly self-explanatory if you have read the operator list. Look at this syntax closely. It is not C syntax, but it is inspired by C. A good exercise it to try to modify this code to use other operators in some way.
