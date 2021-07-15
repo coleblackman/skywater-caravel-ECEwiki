@@ -70,3 +70,7 @@ https://keccak.team/keccak_specs_summary.html
 SHA-3 Derived Functions:
 
 https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-185.pdf
+
+Verilog implementation on Caravel:
+
+https://github.com/miscellaneousbits/caravel_sha3_256_crypto_miner
